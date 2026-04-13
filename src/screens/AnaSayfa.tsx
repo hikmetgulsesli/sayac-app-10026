@@ -10,11 +10,18 @@
 
 
 interface AnaSayfaProps {
-  _?: object;
+  count?: number;
+  onIncrement?: () => void;
+  onDecrement?: () => void;
+  onReset?: () => void;
 }
 
-export function AnaSayfa(// eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _props: AnaSayfaProps) {
+export function AnaSayfa({
+  count = 42,
+  onIncrement,
+  onDecrement,
+  onReset,
+}: AnaSayfaProps) {
   return (
     <>
       {/*  TopAppBar  */}
@@ -42,26 +49,26 @@ export function AnaSayfa(// eslint-disable-next-line @typescript-eslint/no-unuse
       {/*  Numeric Display  */}
       <div className="relative z-10 py-12 flex flex-col items-center">
       <span className="font-body text-[11px] uppercase tracking-[0.2em] text-on-surface-variant mb-4">Mevcut Değer</span>
-      <span className="display-lg font-bold text-primary tracking-tighter">42</span>
+      <span className="display-lg font-bold text-primary tracking-tighter">{count}</span>
       </div>
       {/*  Action Controls  */}
       <div className="w-full grid grid-cols-3 gap-4 mt-8 relative z-10">
       {/*  Azalt Button  */}
-      <button className="flex flex-col items-center justify-center gap-2 p-6 rounded-xl bg-secondary-container bg-opacity-20 text-error hover:bg-opacity-30 transition-all active:scale-95 duration-150 group">
+      <button onClick={onDecrement} className="flex flex-col items-center justify-center gap-2 p-6 rounded-xl bg-secondary-container bg-opacity-20 text-error hover:bg-opacity-30 transition-all active:scale-95 duration-150 group">
       <div className="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-1 shadow-lg">
       <span className="material-symbols-outlined text-white" data-icon="remove">remove</span>
       </div>
       <span className="font-label text-sm font-semibold">Azalt</span>
       </button>
       {/*  Sıfırla Button  */}
-      <button className="flex flex-col items-center justify-center gap-2 p-6 rounded-xl bg-surface-container-low text-tertiary hover:bg-surface-variant transition-all active:scale-95 duration-150 group">
+      <button onClick={onReset} className="flex flex-col items-center justify-center gap-2 p-6 rounded-xl bg-surface-container-low text-tertiary hover:bg-surface-variant transition-all active:scale-95 duration-150 group">
       <div className="w-12 h-12 rounded-full bg-tertiary-container/20 flex items-center justify-center mb-1">
       <span className="material-symbols-outlined" data-icon="refresh">refresh</span>
       </div>
       <span className="font-label text-sm font-semibold">Sıfırla</span>
       </button>
       {/*  Artır Button  */}
-      <button className="flex flex-col items-center justify-center gap-2 p-6 rounded-xl bg-primary-container bg-opacity-20 text-primary hover:bg-opacity-30 transition-all active:scale-95 duration-150 group">
+      <button onClick={onIncrement} className="flex flex-col items-center justify-center gap-2 p-6 rounded-xl bg-primary-container bg-opacity-20 text-primary hover:bg-opacity-30 transition-all active:scale-95 duration-150 group">
       <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center mb-1 shadow-[0_4px_15px_rgba(75,226,119,0.3)]">
       <span className="material-symbols-outlined text-on-primary" data-icon="add">add</span>
       </div>
