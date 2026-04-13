@@ -7,11 +7,14 @@
 // 3. Add onClick/onChange handlers to interactive elements
 // 4. Replace placeholder data with props/state
 
-import { useState } from "react";
 
-interface AnaSayfaProps {}
 
-export function AnaSayfa(props: AnaSayfaProps) {
+interface AnaSayfaProps {
+  _?: object;
+}
+
+export function AnaSayfa(// eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _props: AnaSayfaProps) {
   return (
     <>
       {/*  TopAppBar  */}

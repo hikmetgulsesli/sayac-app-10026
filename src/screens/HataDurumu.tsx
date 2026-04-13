@@ -7,11 +7,12 @@
 // 3. Add onClick/onChange handlers to interactive elements
 // 4. Replace placeholder data with props/state
 
-import { useState } from "react";
 
-interface HataDurumuProps {}
 
-export function HataDurumu(props: HataDurumuProps) {
+interface HataDurumuProps { _?: object }
+
+export function HataDurumu(// eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _props: HataDurumuProps) {
   return (
     <>
       <header className="w-full top-0 sticky bg-[#131318] flex justify-between items-center px-6 py-4 z-50">

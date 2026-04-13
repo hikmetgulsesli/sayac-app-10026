@@ -7,11 +7,13 @@
 // 3. Add onClick/onChange handlers to interactive elements
 // 4. Replace placeholder data with props/state
 
-import { useState } from "react";
 
-interface Sayacapp10026PrdProps {}
 
-export function Sayacapp10026Prd(props: Sayacapp10026PrdProps) {
+interface Sayacapp10026PrdProps { _?: object }
+
+export function Sayacapp10026Prd(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _props: Sayacapp10026PrdProps) {
   return (
     <>
       # sayac-app-10026 — Ürün Gereksinim Dokümanı (PRD)

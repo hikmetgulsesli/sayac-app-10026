@@ -7,11 +7,12 @@
 // 3. Add onClick/onChange handlers to interactive elements
 // 4. Replace placeholder data with props/state
 
-import { useState } from "react";
 
-interface BosDurumBaslangicProps {}
 
-export function BosDurumBaslangic(props: BosDurumBaslangicProps) {
+interface BosDurumBaslangicProps { _?: object }
+
+export function BosDurumBaslangic(// eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _props: BosDurumBaslangicProps) {
   return (
     <>
       {/*  TopAppBar  */}
