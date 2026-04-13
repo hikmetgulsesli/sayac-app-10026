@@ -1,0 +1,187 @@
+# sayac-app-10026 — Ürün Gereksinim Dokümanı (PRD)
+
+## 1. Proje Genel Bakışı
+
+- **Proje Adı:** sayac-app-10026
+- **Proje Türü:** Basit Tek Sayfa Uygulaması (SPA)
+- **Özet:** Kullanıcının bir sayacı artırıp azaltabildiği, sıfırlayabildiği minimal bir web uygulaması.
+- **Hedef Kullanıcılar:** Genel kullanıcılar; herhangi bir yaş grubuna uygun.
+- **Temel Değer Önerisi:** Sade, hızlı yüklenen, sezgisel bir sayaç deneyimi sunmak.
+
+---
+
+## 2. Hedef Platform
+
+- **Platform:** Web (tarayıcı tabanlı, responsive)
+- **Hedef Ekranlar:** Masaüstü, tablet, mobil
+- **Teknik Gereksinimler:** Modern tarayıcılar (Chrome, Firefox, Safari, Edge)
+
+---
+
+## 3. Fonksiyonel Gereksinimler
+
+### 3.1 Ana Özellikler
+
+| # | Özellik | Açıklama |
+|---|---------|----------|
+| 1 | **Sayaç Değerini Artır** | Kullanıcı "Artır" butonuna tıkladığında sayacın değeri 1 artar. |
+| 2 | **Sayaç Değerini Azalt** | Kullanıcı "Azalt" butonuna tıkladığında sayacın değeri 1 azalır. |
+| 3 | **Sayacı Sıfırla** | Kullanıcı "Sıfırla" butonuna tıkladığında sayaç değeri 0 olur. |
+| 4 | **Anlık Görüntüleme** | Sayaç değeri ekranda her zaman okunabilir şekilde gösterilir. |
+
+### 3.2 Kullanıcı Etkileşim Akışı
+
+1. Kullanıcı sayfayı açar → Sayaç 0 değeriyle görüntülenir.
+2. Kullanıcı "Artır" butonuna tıklar → Sayaç 1 olur.
+3. Kullanıcı "Azalt" butonuna tıklar → Sayaç 0 olur.
+4. Kullanıcı "Sıfırla" butonuna tıklar → Sayaç 0 olur.
+5. Negatif değerlere izin verilir (örneğin 0'dan azaltılabilir).
+
+---
+
+## 4. Teknik Gereksinimler
+
+### 4.1 Teknoloji Yığını
+
+- **Framework:** React 18 (Vite ile oluşturulmuş)
+- **Stil:** Tailwind CSS
+- **Dil:** TypeScript
+- **Durum Yönetimi:** React useState (basit uygulama için yeterli)
+- **Kurulum:** Tek sayfa, harici bağımlılık yok
+
+### 4.2 Proje Yapısı
+
+```
+sayac-app-10026/
+├── src/
+│   ├── App.tsx           # Ana bileşen
+│   ├── main.tsx          # Giriş noktası
+│   ├── index.css         # Tailwind yönergeleri
+│   └── components/
+│       └── Counter.tsx   # Sayaç bileşeni
+├── public/
+├── index.html
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+└── vite.config.ts
+```
+
+### 4.3 Performans Gereksinimleri
+
+- İlk yükleme süresi < 1 saniye
+- Buton tıklamalarında gecikme < 16ms (60fps)
+- Lighthouse performans skoru ≥ 95
+
+---
+
+## 5. UI/UX Gereksinimleri
+
+### 5.1 Sayfa ve Ekran Yapısı
+
+| # | Ekran Adı | Tür | Açıklama |
+|---|-----------|-----|----------|
+| 1 | Ana Sayfa | sayfa | Sayaç değeri ve üç aksiyon butonu içeren ana ekran |
+| 2 | Hata Durumu | hata | Uygulama yüklenemezse gösterilen hata ekranı |
+
+### 5.2 Ana Sayfa Düzeni
+
+```
+┌─────────────────────────────┐
+│         Başlık Alanı        │
+│    "Sayaç Uygulaması"       │
+├─────────────────────────────┤
+│                             │
+│       SAYAÇ DEĞERİ          │
+│           42                │
+│                             │
+├─────────────────────────────┤
+│  [Azalt]  [Sıfırla]  [Artır] │
+└─────────────────────────────┘
+```
+
+### 5.3 Görsel Tasarım Kararları
+
+- **Renk Paleti:**
+  - Arka plan: `#f8fafc` (açık gri)
+  - Kart arka plan: `#ffffff`
+  - Ana renk (artır): Yeşil tonları (`#22c55e`)
+  - Zıt renk (azalt): Kırmızı tonları (`#ef4444`)
+  - Sıfırla: Gri tonları (`#6b7280`)
+  - Sayı rengi: `#1e293b` (koyu lacivert)
+  - Yazı tipi: Sistem yazı tipi (sans-serif)
+
+- **Tipografi:**
+  - Sayı boyutu: 6rem (büyük, okunabilir)
+  - Buton yazı boyutu: 1rem
+  - Başlık boyutu: 1.5rem
+
+- **Boşluk ve Düzen:**
+  - Sayfa ortalanmış düzen
+  - Kart şeklinde ana içerik alanı
+  - Butonlar yatay düzende, eşit boşlukla
+
+- **Etkileşim Durumları:**
+  - Buton hover: Hafif koyulaşma
+  - Buton active: Daha da koyulaşma + ölçek küçültme (0.95)
+  - Buton focus: Outline ile görünür odak
+
+---
+
+## 6. Uyarlanabilirlık (Responsive Tasarım)
+
+| Ekran Boyutu | Düzen |
+|--------------|-------|
+| Mobil (< 640px) | Dikey düzen, butonlar dikey sıra |
+| Tablet (640px - 1024px) | Yatay buton düzeni |
+| Masaüstü (> 1024px) | Yatay buton düzeni, maksimum genişlik sınırı |
+
+---
+
+## 7. Erişilebilirlik
+
+- Tüm butonlar klavye ile erişilebilir (Tab, Enter, Space)
+- Ekran okuyucu uyumlu ARIA etiketleri
+- Yeterli renk kontrastı (WCAG AA)
+- Odak göstergeleri görünür
+
+---
+
+## 8. Test Gereksinimleri
+
+- Birim testleri: Counter bileşeni için
+- Entegrasyon testleri: Buton tıklamalarının sayaç değerini doğru güncellediğini doğrulama
+- E2E testleri: Tarayıcı otomasyonu ile ana akış testi
+
+---
+
+## 9. Ekranlar (Screens)
+
+| # | Ekran Adı | Tür | Açıklama |
+|---|-----------|-----|----------|
+| 1 | Ana Sayfa | sayfa | Sayaç değeri + artır/azalt/sıfırla butonları |
+| 2 | Hata Durumu | hata | Uygulama yüklenemediğinde gösterilen ekran |
+| 3 | Boş Durum | durum | Başlangıç durumu olarak sayaç 0 ile gösterim (opsiyonel, tasarımcı kararına bırakılmıştır) |
+
+---
+
+## 10. Non-Functional Requirements
+
+- **Güvenlik:** Kullanıcı tarafından girilen veri yok, XSS riski düşük.
+- **Ölçeklenebilirlik:** Uygulama tek sayfa olduğundan ölçeklenme gereksinimi yok.
+- **Bakım Kolaylığı:** Basit kod yapısı, düşük karmaşıklık.
+
+---
+
+*Bu doküman, tasarımcı ve geliştirici için referans olarak hazırlanmıştır. Tüm gereksinimler bu PRD'ye dayalı olarak uygulanacaktır.*
+
+Generate a SEPARATE screen design for EVERY page, view, modal, dialog, tab panel, and settings screen described in this PRD. Do NOT skip ANY screen — even if it seems minor.
+
+MANDATORY SCREENS:
+- If the PRD mentions "settings" or "ayarlar" → generate a Settings screen
+- If the PRD mentions tabs or bottom navigation → generate EACH tab view as a separate screen
+- If the PRD mentions modals (statistics, help, share, confirmation) → generate each as a separate screen
+- If the PRD mentions error states, empty states, loading states → generate those too
+- Generate at least as many screens as there are distinct views/pages/modals in the PRD
+
+All visible text must be in Turkish. Use a dark, modern theme.
