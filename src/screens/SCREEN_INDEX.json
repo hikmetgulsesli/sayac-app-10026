@@ -1,0 +1,38 @@
+[
+  {
+    "screenId": "732fcf6db51c4ab79d6aa824d7ea7d98",
+    "title": "sayac-app-10026 PRD",
+    "componentName": "Sayacapp10026Prd",
+    "file": "src/screens/Sayacapp10026Prd.tsx",
+    "buttons": 0,
+    "inputs": 0,
+    "links": 0
+  },
+  {
+    "screenId": "d945700a963a4e889885ba851fe16517",
+    "title": "Hata Durumu",
+    "componentName": "HataDurumu",
+    "file": "src/screens/HataDurumu.tsx",
+    "buttons": 3,
+    "inputs": 0,
+    "links": 0
+  },
+  {
+    "screenId": "f0ee3e87c4134fd9bfe01fd6c9736e2a",
+    "title": "Ana Sayfa",
+    "componentName": "AnaSayfa",
+    "file": "src/screens/AnaSayfa.tsx",
+    "buttons": 4,
+    "inputs": 0,
+    "links": 3
+  },
+  {
+    "screenId": "ada6ed77b00b44ff8e7cbc12f5f00759",
+    "title": "Boş Durum (Başlangıç)",
+    "componentName": "BosDurumBaslangic",
+    "file": "src/screens/BosDurumBaslangic.tsx",
+    "buttons": 4,
+    "inputs": 0,
+    "links": 3
+  }
+]
